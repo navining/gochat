@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/gochat-server.dir/ChatServer.cpp.o CMakeFiles/gochat-server.dir/main.cpp.o  -o ../../../bin/gochat-server -lmuduo_net -lmuduo_base -lpthread 

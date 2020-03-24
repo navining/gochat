@@ -1,0 +1,7 @@
+/home/navi/repository/gochat/build/CMakeFiles/rebuild_cache.dir
+/home/navi/repository/gochat/build/CMakeFiles/edit_cache.dir
+/home/navi/repository/gochat/build/src/CMakeFiles/rebuild_cache.dir
+/home/navi/repository/gochat/build/src/CMakeFiles/edit_cache.dir
+/home/navi/repository/gochat/build/src/server/CMakeFiles/rebuild_cache.dir
+/home/navi/repository/gochat/build/src/server/CMakeFiles/gochat-server.dir
+/home/navi/repository/gochat/build/src/server/CMakeFiles/edit_cache.dir

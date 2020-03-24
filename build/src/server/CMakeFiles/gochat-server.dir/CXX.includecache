@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/server/ChatServer.h
+muduo/net/EventLoop.h
+-
+muduo/net/TcpServer.h
+-
+
+/home/navi/repository/gochat/src/server/ChatServer.cpp
+ChatServer.h
+/home/navi/repository/gochat/src/server/ChatServer.h
+functional
+-
+
+/home/navi/repository/gochat/src/server/main.cpp
+iostream
+-
+ChatServer.h
+/home/navi/repository/gochat/src/server/ChatServer.h
+
