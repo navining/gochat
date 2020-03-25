@@ -3,7 +3,14 @@
 
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o
  ../include/server/ChatServer.h
+ ../include/server/ChatService.h
+ ../thirdparty/json.hpp
  /home/navi/repository/gochat/src/server/ChatServer.cpp
+src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o
+ ../include/public.h
+ ../include/server/ChatService.h
+ ../thirdparty/json.hpp
+ /home/navi/repository/gochat/src/server/ChatService.cpp
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o
  ../include/server/ChatServer.h
  /home/navi/repository/gochat/src/server/main.cpp

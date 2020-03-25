@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/navi/repository/gochat/build/src/server",
+  "command": "/usr/bin/c++   -I/home/navi/repository/gochat/include -I/home/navi/repository/gochat/include/server -I/home/navi/repository/gochat/include/client -I/home/navi/repository/gochat/thirdparty  -g -g   -o CMakeFiles/gochat-server.dir/ChatServer.cpp.o -c /home/navi/repository/gochat/src/server/ChatServer.cpp",
+  "file": "/home/navi/repository/gochat/src/server/ChatServer.cpp"
+},
+{
+  "directory": "/home/navi/repository/gochat/build/src/server",
+  "command": "/usr/bin/c++   -I/home/navi/repository/gochat/include -I/home/navi/repository/gochat/include/server -I/home/navi/repository/gochat/include/client -I/home/navi/repository/gochat/thirdparty  -g -g   -o CMakeFiles/gochat-server.dir/ChatService.cpp.o -c /home/navi/repository/gochat/src/server/ChatService.cpp",
+  "file": "/home/navi/repository/gochat/src/server/ChatService.cpp"
+},
+{
+  "directory": "/home/navi/repository/gochat/build/src/server",
+  "command": "/usr/bin/c++   -I/home/navi/repository/gochat/include -I/home/navi/repository/gochat/include/server -I/home/navi/repository/gochat/include/client -I/home/navi/repository/gochat/thirdparty  -g -g   -o CMakeFiles/gochat-server.dir/main.cpp.o -c /home/navi/repository/gochat/src/server/main.cpp",
+  "file": "/home/navi/repository/gochat/src/server/main.cpp"
+}
+]

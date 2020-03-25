@@ -20,8 +20,8 @@ class ChatServer {
   EventLoop* _loop;
 
   // Callback function for user connection
-  void onConnection(const TcpConnectionPtr&);
+  void onConnection(const TcpConnectionPtr& conn);
 
   // Callback function for I/O message
-  void onMessage(const TcpConnectionPtr&, Buffer*, Timestamp);
+  void onMessage(const TcpConnectionPtr& conn, Buffer* buffer, Timestamp time);
 };

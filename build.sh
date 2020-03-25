@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd build
-cmake ..
-make
-cd ..
+set -x
+
+rm -rf `pwd`/build/*
+cd `pwd`/build && cmake .. && make

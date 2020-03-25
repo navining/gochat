@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/navi/repository/gochat/src/server/ChatServer.cpp" "/home/navi/repository/gochat/build/src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o"
+  "/home/navi/repository/gochat/src/server/ChatService.cpp" "/home/navi/repository/gochat/build/src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o"
   "/home/navi/repository/gochat/src/server/main.cpp" "/home/navi/repository/gochat/build/src/server/CMakeFiles/gochat-server.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
