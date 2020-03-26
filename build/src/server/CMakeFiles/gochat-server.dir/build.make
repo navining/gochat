@@ -105,28 +105,28 @@ src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o.provides: src/server/C
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o.provides.build: src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o
 
 
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o: src/server/CMakeFiles/gochat-server.dir/flags.make
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o: ../src/server/UserMode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o"
-	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gochat-server.dir/UserMode.cpp.o -c /home/navi/repository/gochat/src/server/UserMode.cpp
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o: src/server/CMakeFiles/gochat-server.dir/flags.make
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o: ../src/server/UserModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o"
+	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gochat-server.dir/UserModel.cpp.o -c /home/navi/repository/gochat/src/server/UserModel.cpp
 
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gochat-server.dir/UserMode.cpp.i"
-	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/navi/repository/gochat/src/server/UserMode.cpp > CMakeFiles/gochat-server.dir/UserMode.cpp.i
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gochat-server.dir/UserModel.cpp.i"
+	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/navi/repository/gochat/src/server/UserModel.cpp > CMakeFiles/gochat-server.dir/UserModel.cpp.i
 
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gochat-server.dir/UserMode.cpp.s"
-	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/navi/repository/gochat/src/server/UserMode.cpp -o CMakeFiles/gochat-server.dir/UserMode.cpp.s
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gochat-server.dir/UserModel.cpp.s"
+	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/navi/repository/gochat/src/server/UserModel.cpp -o CMakeFiles/gochat-server.dir/UserModel.cpp.s
 
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o.requires:
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o.requires:
 
-.PHONY : src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o.requires
+.PHONY : src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o.requires
 
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o.provides: src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o.requires
-	$(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o.provides.build
-.PHONY : src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o.provides
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o.provides: src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o.requires
+	$(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o.provides.build
+.PHONY : src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o.provides
 
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o.provides.build: src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o.provides.build: src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o
 
 
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o: src/server/CMakeFiles/gochat-server.dir/flags.make
@@ -181,7 +181,7 @@ src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o.provides.build: 
 gochat__server_OBJECTS = \
 "CMakeFiles/gochat-server.dir/ChatServer.cpp.o" \
 "CMakeFiles/gochat-server.dir/ChatService.cpp.o" \
-"CMakeFiles/gochat-server.dir/UserMode.cpp.o" \
+"CMakeFiles/gochat-server.dir/UserModel.cpp.o" \
 "CMakeFiles/gochat-server.dir/main.cpp.o" \
 "CMakeFiles/gochat-server.dir/database/Database.cpp.o"
 
@@ -190,7 +190,7 @@ gochat__server_EXTERNAL_OBJECTS =
 
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o
-../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o
+../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/main.cpp.o
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/build.make
@@ -205,7 +205,7 @@ src/server/CMakeFiles/gochat-server.dir/build: ../bin/gochat-server
 
 src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o.requires
 src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o.requires
-src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o.requires
+src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o.requires
 src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/main.cpp.o.requires
 src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o.requires
 

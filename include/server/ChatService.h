@@ -3,6 +3,7 @@
 #include <muduo/net/TcpConnection.h>
 #include <functional>
 #include <unordered_map>
+#include "UserModel.h"
 #include "json.hpp"
 
 using namespace std;
@@ -33,4 +34,6 @@ class ChatService {
 
   // Store message ID and handler
   unordered_map<int, msgHandler> _msgHandlerMap;
+
+  UserModel _userModel;
 };

@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/navi/repository/gochat/src/server/ChatServer.cpp" "/home/navi/repository/gochat/build/src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o"
   "/home/navi/repository/gochat/src/server/ChatService.cpp" "/home/navi/repository/gochat/build/src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o"
-  "/home/navi/repository/gochat/src/server/UserMode.cpp" "/home/navi/repository/gochat/build/src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o"
+  "/home/navi/repository/gochat/src/server/UserModel.cpp" "/home/navi/repository/gochat/build/src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o"
   "/home/navi/repository/gochat/src/server/database/Database.cpp" "/home/navi/repository/gochat/build/src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o"
   "/home/navi/repository/gochat/src/server/main.cpp" "/home/navi/repository/gochat/build/src/server/CMakeFiles/gochat-server.dir/main.cpp.o"
   )

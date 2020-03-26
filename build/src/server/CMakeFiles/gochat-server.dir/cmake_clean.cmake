@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/gochat-server.dir/ChatServer.cpp.o"
   "CMakeFiles/gochat-server.dir/ChatService.cpp.o"
-  "CMakeFiles/gochat-server.dir/UserMode.cpp.o"
+  "CMakeFiles/gochat-server.dir/UserModel.cpp.o"
   "CMakeFiles/gochat-server.dir/main.cpp.o"
   "CMakeFiles/gochat-server.dir/database/Database.cpp.o"
   "../../../bin/gochat-server.pdb"

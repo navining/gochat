@@ -21,6 +21,8 @@ functional
 -
 unordered_map
 -
+UserModel.h
+../include/server/UserModel.h
 json.hpp
 ../include/server/json.hpp
 
@@ -388,13 +390,13 @@ muduo/base/Logging.h
 public.h
 /home/navi/repository/gochat/src/server/public.h
 
-/home/navi/repository/gochat/src/server/UserMode.cpp
+/home/navi/repository/gochat/src/server/UserModel.cpp
+UserModel.h
+/home/navi/repository/gochat/src/server/UserModel.h
 iostream
 -
 Database.h
 /home/navi/repository/gochat/src/server/Database.h
-UserModel.h
-/home/navi/repository/gochat/src/server/UserModel.h
 
 /home/navi/repository/gochat/src/server/database/Database.cpp
 Database.h

@@ -3,18 +3,22 @@
 
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../include/server/ChatServer.h
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../include/server/ChatService.h
+src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../include/server/User.hpp
+src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../include/server/database/UserModel.h
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../thirdparty/json.hpp
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../src/server/ChatServer.cpp
 
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../include/public.h
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../include/server/ChatService.h
+src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../include/server/User.hpp
+src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../include/server/database/UserModel.h
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../thirdparty/json.hpp
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../src/server/ChatService.cpp
 
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o: ../include/server/User.hpp
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o: ../include/server/database/Database.h
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o: ../include/server/database/UserModel.h
-src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o: ../src/server/UserMode.cpp
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o: ../include/server/User.hpp
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o: ../include/server/database/Database.h
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o: ../include/server/database/UserModel.h
+src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o: ../src/server/UserModel.cpp
 
 src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o: ../include/server/database/Database.h
 src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o: ../src/server/database/Database.cpp

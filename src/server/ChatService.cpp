@@ -36,5 +36,25 @@ void ChatService::login(const TcpConnectionPtr& conn, json& js,
 
 void ChatService::signup(const TcpConnectionPtr& conn, json& js,
                          Timestamp& time) {
-  LOG_INFO << "Successfully Signup!";
+  string name = js["name"];
+  string pwd = js["password"];
+
+  User user;
+  user.setName(name);
+  user.setPwd(pwd);
+  bool state = _userModel.insert(user);
+  if (state) {
+    // Signup success
+    json response;
+    response["msgid"] = SIGNUP_MSG_ACK;
+    response["errid"] = 0;
+    response["id"] = user.getId();
+    conn->send(response.dump());
+  } else {
+    // Signup fail
+    json response;
+    response["msgid"] = SIGNUP_MSG_ACK;
+    response["errid"] = 1;
+    conn->send(response.dump());
+  }
 }

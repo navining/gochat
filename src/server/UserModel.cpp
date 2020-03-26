@@ -1,13 +1,13 @@
+#include "UserModel.h"
 #include <iostream>
 #include "Database.h"
-#include "UserModel.h"
 using namespace std;
 
 bool UserModel::insert(User &user) {
   // Assemble sql command
   char sql[256] = {0};
   sprintf(
-      sql, "insert into User(name, password, state) values('%s', '%s', '%s')",
+      sql, "insert into user(name, password, state) values('%s', '%s', '%s')",
       user.getName().c_str(), user.getPwd().c_str(), user.getState().c_str());
 
   MySQL mysql;

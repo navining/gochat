@@ -179,32 +179,32 @@ ChatService.cpp.s:
 	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.s
 .PHONY : ChatService.cpp.s
 
-UserMode.o: UserMode.cpp.o
+UserModel.o: UserModel.cpp.o
 
-.PHONY : UserMode.o
+.PHONY : UserModel.o
 
 # target to build an object file
-UserMode.cpp.o:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o
-.PHONY : UserMode.cpp.o
+UserModel.cpp.o:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o
+.PHONY : UserModel.cpp.o
 
-UserMode.i: UserMode.cpp.i
+UserModel.i: UserModel.cpp.i
 
-.PHONY : UserMode.i
+.PHONY : UserModel.i
 
 # target to preprocess a source file
-UserMode.cpp.i:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.i
-.PHONY : UserMode.cpp.i
+UserModel.cpp.i:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.i
+.PHONY : UserModel.cpp.i
 
-UserMode.s: UserMode.cpp.s
+UserModel.s: UserModel.cpp.s
 
-.PHONY : UserMode.s
+.PHONY : UserModel.s
 
 # target to generate assembly for a file
-UserMode.cpp.s:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.s
-.PHONY : UserMode.cpp.s
+UserModel.cpp.s:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.s
+.PHONY : UserModel.cpp.s
 
 database/Database.o: database/Database.cpp.o
 
@@ -275,9 +275,9 @@ help:
 	@echo "... ChatService.o"
 	@echo "... ChatService.i"
 	@echo "... ChatService.s"
-	@echo "... UserMode.o"
-	@echo "... UserMode.i"
-	@echo "... UserMode.s"
+	@echo "... UserModel.o"
+	@echo "... UserModel.i"
+	@echo "... UserModel.s"
 	@echo "... database/Database.o"
 	@echo "... database/Database.i"
 	@echo "... database/Database.s"
