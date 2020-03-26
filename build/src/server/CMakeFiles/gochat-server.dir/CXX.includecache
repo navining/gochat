@@ -30,15 +30,15 @@ json.hpp
 string
 -
 
+../include/server/UserModel.h
+User.hpp
+../include/server/User.hpp
+
 ../include/server/database/Database.h
 mysql/mysql.h
 -
 string
 -
-
-../include/server/database/UserModel.h
-User.hpp
-../include/server/database/User.hpp
 
 ../thirdparty/json.hpp
 algorithm
