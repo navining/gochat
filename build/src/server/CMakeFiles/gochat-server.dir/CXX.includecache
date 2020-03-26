@@ -24,6 +24,20 @@ unordered_map
 json.hpp
 ../include/server/json.hpp
 
+../include/server/User.hpp
+string
+-
+
+../include/server/database/Database.h
+mysql/mysql.h
+-
+string
+-
+
+../include/server/database/UserModel.h
+User.hpp
+../include/server/database/User.hpp
+
 ../thirdparty/json.hpp
 algorithm
 -
@@ -373,6 +387,20 @@ muduo/base/Logging.h
 -
 public.h
 /home/navi/repository/gochat/src/server/public.h
+
+/home/navi/repository/gochat/src/server/UserMode.cpp
+iostream
+-
+Database.h
+/home/navi/repository/gochat/src/server/Database.h
+UserModel.h
+/home/navi/repository/gochat/src/server/UserModel.h
+
+/home/navi/repository/gochat/src/server/database/Database.cpp
+Database.h
+/home/navi/repository/gochat/src/server/database/Database.h
+muduo/base/Logging.h
+-
 
 /home/navi/repository/gochat/src/server/main.cpp
 iostream

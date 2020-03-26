@@ -10,6 +10,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 # Header file include path
 include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/include/server)
+include_directories(${PROJECT_SOURCE_DIR}/include/server/database)
 include_directories(${PROJECT_SOURCE_DIR}/include/client)
 include_directories(${PROJECT_SOURCE_DIR}/thirdparty)
 

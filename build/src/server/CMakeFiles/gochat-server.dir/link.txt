@@ -1,1 +1,1 @@
-/usr/bin/c++  -g -g  -rdynamic CMakeFiles/gochat-server.dir/ChatServer.cpp.o CMakeFiles/gochat-server.dir/ChatService.cpp.o CMakeFiles/gochat-server.dir/main.cpp.o  -o ../../../bin/gochat-server -lmuduo_net -lmuduo_base -lpthread 
+/usr/bin/c++  -g -g  -rdynamic CMakeFiles/gochat-server.dir/ChatServer.cpp.o CMakeFiles/gochat-server.dir/ChatService.cpp.o CMakeFiles/gochat-server.dir/UserMode.cpp.o CMakeFiles/gochat-server.dir/main.cpp.o CMakeFiles/gochat-server.dir/database/Database.cpp.o  -o ../../../bin/gochat-server -lmuduo_net -lmuduo_base -lmysqlclient -lpthread 

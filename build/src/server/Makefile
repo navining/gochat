@@ -179,6 +179,60 @@ ChatService.cpp.s:
 	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.s
 .PHONY : ChatService.cpp.s
 
+UserMode.o: UserMode.cpp.o
+
+.PHONY : UserMode.o
+
+# target to build an object file
+UserMode.cpp.o:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.o
+.PHONY : UserMode.cpp.o
+
+UserMode.i: UserMode.cpp.i
+
+.PHONY : UserMode.i
+
+# target to preprocess a source file
+UserMode.cpp.i:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.i
+.PHONY : UserMode.cpp.i
+
+UserMode.s: UserMode.cpp.s
+
+.PHONY : UserMode.s
+
+# target to generate assembly for a file
+UserMode.cpp.s:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserMode.cpp.s
+.PHONY : UserMode.cpp.s
+
+database/Database.o: database/Database.cpp.o
+
+.PHONY : database/Database.o
+
+# target to build an object file
+database/Database.cpp.o:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o
+.PHONY : database/Database.cpp.o
+
+database/Database.i: database/Database.cpp.i
+
+.PHONY : database/Database.i
+
+# target to preprocess a source file
+database/Database.cpp.i:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.i
+.PHONY : database/Database.cpp.i
+
+database/Database.s: database/Database.cpp.s
+
+.PHONY : database/Database.s
+
+# target to generate assembly for a file
+database/Database.cpp.s:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.s
+.PHONY : database/Database.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -221,6 +275,12 @@ help:
 	@echo "... ChatService.o"
 	@echo "... ChatService.i"
 	@echo "... ChatService.s"
+	@echo "... UserMode.o"
+	@echo "... UserMode.i"
+	@echo "... UserMode.s"
+	@echo "... database/Database.o"
+	@echo "... database/Database.i"
+	@echo "... database/Database.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

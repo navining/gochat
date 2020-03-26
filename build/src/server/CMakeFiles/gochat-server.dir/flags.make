@@ -6,5 +6,5 @@ CXX_FLAGS = -g -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/navi/repository/gochat/include -I/home/navi/repository/gochat/include/server -I/home/navi/repository/gochat/include/client -I/home/navi/repository/gochat/thirdparty 
+CXX_INCLUDES = -I/home/navi/repository/gochat/include -I/home/navi/repository/gochat/include/server -I/home/navi/repository/gochat/include/server/database -I/home/navi/repository/gochat/include/client -I/home/navi/repository/gochat/thirdparty 
 
