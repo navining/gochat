@@ -1,4 +1,5 @@
 #include "ChatServer.h"
+#include <muduo/base/Logging.h>
 #include "ChatService.h"
 #include "json.hpp"
 using json = nlohmann::json;
@@ -18,11 +19,15 @@ ChatServer::ChatServer(EventLoop* loop, const InetAddress& listenAddr,
   _server.setThreadNum(8);
 }
 
-void ChatServer::start() { _server.start(); }
+void ChatServer::start() {
+  LOG_INFO << "Server started, waitting for connection.";
+  _server.start();
+}
 
 void ChatServer::onConnection(const TcpConnectionPtr& conn) {
   // Client disconnected
   if (!conn->connected()) {
+    ChatService::instance()->clientCloseException(conn);
     conn->shutdown();
   }
 }

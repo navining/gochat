@@ -29,6 +29,27 @@ msgHandler ChatService::getHandler(int msgid) {
   }
 }
 
+void ChatService::clientCloseException(const TcpConnectionPtr& conn) {
+  User user;
+  {
+    lock_guard<mutex> lock(_connMutex);
+    for (auto it = _userConnMap.begin(); it != _userConnMap.end(); it++) {
+      if (it->second == conn) {
+        user.setId(it->first);
+        // Delete user connection from map
+        _userConnMap.erase(it);
+        break;
+      }
+    }
+  }
+
+  // Update user state
+  if (user.getId() != -1) {
+    user.setState("offline");
+  }
+  _userModel.updateState(user);
+}
+
 void ChatService::login(const TcpConnectionPtr& conn, json& js,
                         Timestamp& time) {
   int id = js["id"].get<int>();

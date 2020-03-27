@@ -30,6 +30,9 @@ class ChatService {
   // Get handler for a message
   msgHandler getHandler(int msgid);
 
+  // Handle client exit exception
+  void clientCloseException(const TcpConnectionPtr &conn);
+
  private:
   ChatService();
 
