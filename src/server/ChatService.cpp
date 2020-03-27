@@ -31,7 +31,41 @@ msgHandler ChatService::getHandler(int msgid) {
 
 void ChatService::login(const TcpConnectionPtr& conn, json& js,
                         Timestamp& time) {
-  LOG_INFO << "Successfully Login!";
+  int id = js["id"].get<int>();
+  string pwd = js["password"];
+
+  User user = _userModel.query(id);
+  if (user.getId() == id && user.getPwd() == pwd) {
+    if (user.getState() == "online") {
+      // User already login
+      json response;
+      response["msgid"] = LOGIN_MSG_ACK;
+      response["errid"] = 2;
+      response["errmsg"] = "User already login";
+      conn->send(response.dump());
+    } else {
+      // Login succeed
+
+      // Update user state
+      user.setState("online");
+      _userModel.updateState(user);
+
+      json response;
+      response["msgid"] = LOGIN_MSG_ACK;
+      response["errid"] = 0;
+      response["id"] = user.getId();
+      response["name"] = user.getName();
+      conn->send(response.dump());
+    }
+
+  } else {
+    // Login fail
+    json response;
+    response["msgid"] = LOGIN_MSG_ACK;
+    response["errid"] = 1;
+    response["errmsg"] = "Invalid ID or password";
+    conn->send(response.dump());
+  }
 }
 
 void ChatService::signup(const TcpConnectionPtr& conn, json& js,
@@ -44,7 +78,7 @@ void ChatService::signup(const TcpConnectionPtr& conn, json& js,
   user.setPwd(pwd);
   bool state = _userModel.insert(user);
   if (state) {
-    // Signup success
+    // Signup succeed
     json response;
     response["msgid"] = SIGNUP_MSG_ACK;
     response["errid"] = 0;
