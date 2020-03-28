@@ -15,6 +15,7 @@ ChatService::ChatService() {
       {LOGIN_MSG, bind(&ChatService::login, this, _1, _2, _3)});
   _msgHandlerMap.insert(
       {SIGNUP_MSG, bind(&ChatService::signup, this, _1, _2, _3)});
+  _msgHandlerMap.insert({CHAT_MSG, bind(&ChatService::chat, this, _1, _2, _3)});
 }
 
 msgHandler ChatService::getHandler(int msgid) {
@@ -66,7 +67,8 @@ void ChatService::login(const TcpConnectionPtr& conn, json& js,
       conn->send(response.dump());
     } else {
       // Login succeed
-
+      LOG_INFO << "[" << user.getId() << ": " << user.getName()
+               << "] logged in";
       // Record user connection
       {
         lock_guard<mutex> lock(_connMutex);
@@ -106,6 +108,8 @@ void ChatService::signup(const TcpConnectionPtr& conn, json& js,
   bool state = _userModel.insert(user);
   if (state) {
     // Signup succeed
+    LOG_INFO << "[" << user.getId() << ": " << user.getName() << "] signed up";
+
     json response;
     response["msgid"] = SIGNUP_MSG_ACK;
     response["errid"] = 0;
@@ -116,6 +120,24 @@ void ChatService::signup(const TcpConnectionPtr& conn, json& js,
     json response;
     response["msgid"] = SIGNUP_MSG_ACK;
     response["errid"] = 1;
+    response["errmsg"] = "User already exists";
     conn->send(response.dump());
   }
+}
+
+void ChatService::chat(const TcpConnectionPtr& conn, json& js,
+                       Timestamp& time) {
+  int toId = js["to"].get<int>();
+
+  {
+    lock_guard<mutex> lock(_connMutex);
+    auto it = _userConnMap.find(toId);
+    if (it != _userConnMap.end()) {
+      // User online, send message
+      it->second->send(js.dump());
+      return;
+    }
+  }
+
+  // User offline, save offline message
 }

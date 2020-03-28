@@ -27,6 +27,9 @@ class ChatService {
   // Handle signup service
   void signup(const TcpConnectionPtr &conn, json &js, Timestamp &time);
 
+  // One to one chat service
+  void chat(const TcpConnectionPtr &conn, json &js, Timestamp &time);
+
   // Get handler for a message
   msgHandler getHandler(int msgid);
 
