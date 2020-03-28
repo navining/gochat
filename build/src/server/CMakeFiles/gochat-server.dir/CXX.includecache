@@ -23,10 +23,18 @@ mutex
 -
 unordered_map
 -
+OfflineMsgModel.h
+../include/server/OfflineMsgModel.h
 UserModel.h
 ../include/server/UserModel.h
 json.hpp
 ../include/server/json.hpp
+
+../include/server/OfflineMsgModel.h
+string
+-
+vector
+-
 
 ../include/server/User.hpp
 string
@@ -391,8 +399,18 @@ ChatService.h
 /home/navi/repository/gochat/src/server/ChatService.h
 muduo/base/Logging.h
 -
+vector
+-
 public.h
 /home/navi/repository/gochat/src/server/public.h
+
+/home/navi/repository/gochat/src/server/OfflineMsgModel.cpp
+OfflineMsgModel.h
+/home/navi/repository/gochat/src/server/OfflineMsgModel.h
+iostream
+-
+Database.h
+/home/navi/repository/gochat/src/server/Database.h
 
 /home/navi/repository/gochat/src/server/UserModel.cpp
 UserModel.h

@@ -105,9 +105,33 @@ src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o.provides: src/server/C
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o.provides.build: src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o
 
 
+src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o: src/server/CMakeFiles/gochat-server.dir/flags.make
+src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o: ../src/server/OfflineMsgModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o"
+	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o -c /home/navi/repository/gochat/src/server/OfflineMsgModel.cpp
+
+src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.i"
+	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/navi/repository/gochat/src/server/OfflineMsgModel.cpp > CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.i
+
+src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.s"
+	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/navi/repository/gochat/src/server/OfflineMsgModel.cpp -o CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.s
+
+src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o.requires:
+
+.PHONY : src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o.requires
+
+src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o.provides: src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o.requires
+	$(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o.provides.build
+.PHONY : src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o.provides
+
+src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o.provides.build: src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o
+
+
 src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o: src/server/CMakeFiles/gochat-server.dir/flags.make
 src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o: ../src/server/UserModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o"
 	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gochat-server.dir/UserModel.cpp.o -c /home/navi/repository/gochat/src/server/UserModel.cpp
 
 src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.i: cmake_force
@@ -131,7 +155,7 @@ src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o.provides.build: src/serv
 
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o: src/server/CMakeFiles/gochat-server.dir/flags.make
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../src/server/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/server/CMakeFiles/gochat-server.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/server/CMakeFiles/gochat-server.dir/main.cpp.o"
 	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gochat-server.dir/main.cpp.o -c /home/navi/repository/gochat/src/server/main.cpp
 
 src/server/CMakeFiles/gochat-server.dir/main.cpp.i: cmake_force
@@ -155,7 +179,7 @@ src/server/CMakeFiles/gochat-server.dir/main.cpp.o.provides.build: src/server/CM
 
 src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o: src/server/CMakeFiles/gochat-server.dir/flags.make
 src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o: ../src/server/database/Database.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o"
 	cd /home/navi/repository/gochat/build/src/server && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gochat-server.dir/database/Database.cpp.o -c /home/navi/repository/gochat/src/server/database/Database.cpp
 
 src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.i: cmake_force
@@ -181,6 +205,7 @@ src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o.provides.build: 
 gochat__server_OBJECTS = \
 "CMakeFiles/gochat-server.dir/ChatServer.cpp.o" \
 "CMakeFiles/gochat-server.dir/ChatService.cpp.o" \
+"CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o" \
 "CMakeFiles/gochat-server.dir/UserModel.cpp.o" \
 "CMakeFiles/gochat-server.dir/main.cpp.o" \
 "CMakeFiles/gochat-server.dir/database/Database.cpp.o"
@@ -190,12 +215,13 @@ gochat__server_EXTERNAL_OBJECTS =
 
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o
+../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/main.cpp.o
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/build.make
 ../bin/gochat-server: src/server/CMakeFiles/gochat-server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ../../../bin/gochat-server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ../../../bin/gochat-server"
 	cd /home/navi/repository/gochat/build/src/server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gochat-server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -205,6 +231,7 @@ src/server/CMakeFiles/gochat-server.dir/build: ../bin/gochat-server
 
 src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o.requires
 src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o.requires
+src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o.requires
 src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o.requires
 src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/main.cpp.o.requires
 src/server/CMakeFiles/gochat-server.dir/requires: src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o.requires

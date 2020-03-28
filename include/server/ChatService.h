@@ -4,6 +4,7 @@
 #include <functional>
 #include <mutex>
 #include <unordered_map>
+#include "OfflineMsgModel.h"
 #include "UserModel.h"
 #include "json.hpp"
 
@@ -50,4 +51,7 @@ class ChatService {
 
   // User operation
   UserModel _userModel;
+
+  // Offline message operation
+  OfflineMsgModel _offlineMsgModel;
 };

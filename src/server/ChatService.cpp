@@ -1,8 +1,10 @@
 #include "ChatService.h"
 #include <muduo/base/Logging.h>
+#include <vector>
 #include "public.h"
 
 using namespace muduo;
+using namespace std;
 
 ChatService* ChatService::instance() {
   static ChatService service;
@@ -84,6 +86,14 @@ void ChatService::login(const TcpConnectionPtr& conn, json& js,
       response["errid"] = 0;
       response["id"] = user.getId();
       response["name"] = user.getName();
+
+      // Query offline message, and delete
+      vector<string> vec = _offlineMsgModel.query(user.getId());
+      if (!vec.empty()) {
+        response["offlinemsg"] = vec;
+        _offlineMsgModel.remove(user.getId());
+      }
+
       conn->send(response.dump());
     }
 
@@ -140,4 +150,5 @@ void ChatService::chat(const TcpConnectionPtr& conn, json& js,
   }
 
   // User offline, save offline message
+  _offlineMsgModel.insert(toId, js.dump());
 }

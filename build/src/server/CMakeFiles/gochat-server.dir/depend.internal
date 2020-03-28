@@ -4,6 +4,7 @@
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o
  ../include/server/ChatServer.h
  ../include/server/ChatService.h
+ ../include/server/OfflineMsgModel.h
  ../include/server/User.hpp
  ../include/server/UserModel.h
  ../thirdparty/json.hpp
@@ -11,10 +12,15 @@ src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o
  ../include/public.h
  ../include/server/ChatService.h
+ ../include/server/OfflineMsgModel.h
  ../include/server/User.hpp
  ../include/server/UserModel.h
  ../thirdparty/json.hpp
  /home/navi/repository/gochat/src/server/ChatService.cpp
+src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o
+ ../include/server/OfflineMsgModel.h
+ ../include/server/database/Database.h
+ /home/navi/repository/gochat/src/server/OfflineMsgModel.cpp
 src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o
  ../include/server/User.hpp
  ../include/server/UserModel.h
