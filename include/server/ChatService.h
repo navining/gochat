@@ -37,6 +37,9 @@ class ChatService {
   // Handle client exit exception
   void clientCloseException(const TcpConnectionPtr &conn);
 
+  // Reset after server exit exception
+  void reset();
+
  private:
   ChatService();
 

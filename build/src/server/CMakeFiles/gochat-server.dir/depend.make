@@ -30,5 +30,10 @@ src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o: ../include/serv
 src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o: ../src/server/database/Database.cpp
 
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/ChatServer.h
+src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/ChatService.h
+src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/OfflineMsgModel.h
+src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/User.hpp
+src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/UserModel.h
+src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../thirdparty/json.hpp
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../src/server/main.cpp
 

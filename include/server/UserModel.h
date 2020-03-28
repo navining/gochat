@@ -13,4 +13,7 @@ class UserModel {
 
   // Update user state
   bool updateState(User user);
+
+  // Reset user state
+  void resetState();
 };

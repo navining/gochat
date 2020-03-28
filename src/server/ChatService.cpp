@@ -53,6 +53,11 @@ void ChatService::clientCloseException(const TcpConnectionPtr& conn) {
   _userModel.updateState(user);
 }
 
+void ChatService::reset() {
+  // Set all user state to offline
+  _userModel.resetState();
+}
+
 void ChatService::login(const TcpConnectionPtr& conn, json& js,
                         Timestamp& time) {
   int id = js["id"].get<int>();
