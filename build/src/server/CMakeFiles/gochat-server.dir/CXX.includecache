@@ -23,12 +23,20 @@ mutex
 -
 unordered_map
 -
+FriendModel.h
+../include/server/FriendModel.h
 OfflineMsgModel.h
 ../include/server/OfflineMsgModel.h
 UserModel.h
 ../include/server/UserModel.h
 json.hpp
 ../include/server/json.hpp
+
+../include/server/FriendModel.h
+vector
+-
+User.hpp
+../include/server/User.hpp
 
 ../include/server/OfflineMsgModel.h
 string
@@ -403,6 +411,12 @@ vector
 -
 public.h
 /home/navi/repository/gochat/src/server/public.h
+
+/home/navi/repository/gochat/src/server/FriendModel.cpp
+FriendModel.h
+/home/navi/repository/gochat/src/server/FriendModel.h
+Database.h
+/home/navi/repository/gochat/src/server/Database.h
 
 /home/navi/repository/gochat/src/server/OfflineMsgModel.cpp
 OfflineMsgModel.h

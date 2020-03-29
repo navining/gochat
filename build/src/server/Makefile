@@ -179,6 +179,33 @@ ChatService.cpp.s:
 	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.s
 .PHONY : ChatService.cpp.s
 
+FriendModel.o: FriendModel.cpp.o
+
+.PHONY : FriendModel.o
+
+# target to build an object file
+FriendModel.cpp.o:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/FriendModel.cpp.o
+.PHONY : FriendModel.cpp.o
+
+FriendModel.i: FriendModel.cpp.i
+
+.PHONY : FriendModel.i
+
+# target to preprocess a source file
+FriendModel.cpp.i:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/FriendModel.cpp.i
+.PHONY : FriendModel.cpp.i
+
+FriendModel.s: FriendModel.cpp.s
+
+.PHONY : FriendModel.s
+
+# target to generate assembly for a file
+FriendModel.cpp.s:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/FriendModel.cpp.s
+.PHONY : FriendModel.cpp.s
+
 OfflineMsgModel.o: OfflineMsgModel.cpp.o
 
 .PHONY : OfflineMsgModel.o
@@ -302,6 +329,9 @@ help:
 	@echo "... ChatService.o"
 	@echo "... ChatService.i"
 	@echo "... ChatService.s"
+	@echo "... FriendModel.o"
+	@echo "... FriendModel.i"
+	@echo "... FriendModel.s"
 	@echo "... OfflineMsgModel.o"
 	@echo "... OfflineMsgModel.i"
 	@echo "... OfflineMsgModel.s"

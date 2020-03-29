@@ -30,7 +30,7 @@ class User {
 
   string getState() { return state; }
 
- private:
+ protected:
   int id;
   string name;
   string password;

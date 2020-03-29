@@ -18,6 +18,8 @@ ChatService::ChatService() {
   _msgHandlerMap.insert(
       {SIGNUP_MSG, bind(&ChatService::signup, this, _1, _2, _3)});
   _msgHandlerMap.insert({CHAT_MSG, bind(&ChatService::chat, this, _1, _2, _3)});
+  _msgHandlerMap.insert(
+      {ADD_FRIEND_MSG, bind(&ChatService::addFriend, this, _1, _2, _3)});
 }
 
 msgHandler ChatService::getHandler(int msgid) {
@@ -93,10 +95,24 @@ void ChatService::login(const TcpConnectionPtr& conn, json& js,
       response["name"] = user.getName();
 
       // Query offline message, and delete
-      vector<string> vec = _offlineMsgModel.query(user.getId());
-      if (!vec.empty()) {
-        response["offlinemsg"] = vec;
+      vector<string> offlineMsgVec = _offlineMsgModel.query(user.getId());
+      if (!offlineMsgVec.empty()) {
+        response["offlinemsg"] = offlineMsgVec;
         _offlineMsgModel.remove(user.getId());
+      }
+
+      // Query friend information
+      vector<User> friendVec = _friendModel.query(user.getId());
+      if (!friendVec.empty()) {
+        vector<string> userVec;
+        for (User& u : friendVec) {
+          json js;
+          js["id"] = u.getId();
+          js["name"] = u.getName();
+          js["state"] = u.getState();
+          userVec.push_back(js.dump());
+        }
+        response["friends"] = userVec;
       }
 
       conn->send(response.dump());
@@ -156,4 +172,13 @@ void ChatService::chat(const TcpConnectionPtr& conn, json& js,
 
   // User offline, save offline message
   _offlineMsgModel.insert(toId, js.dump());
+}
+
+void ChatService::addFriend(const TcpConnectionPtr& conn, json& js,
+                            Timestamp& time) {
+  int userid = js["id"].get<int>();
+  int friendid = js["friend"].get<int>();
+
+  // Save friend information
+  _friendModel.insert(userid, friendid);
 }

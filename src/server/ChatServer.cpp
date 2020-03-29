@@ -22,6 +22,7 @@ ChatServer::ChatServer(EventLoop* loop, const InetAddress& listenAddr,
 void ChatServer::start() {
   LOG_INFO << "Server started, waitting for connection.";
   _server.start();
+  ChatService::instance()->reset();
 }
 
 void ChatServer::onConnection(const TcpConnectionPtr& conn) {

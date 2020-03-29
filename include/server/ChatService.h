@@ -4,6 +4,7 @@
 #include <functional>
 #include <mutex>
 #include <unordered_map>
+#include "FriendModel.h"
 #include "OfflineMsgModel.h"
 #include "UserModel.h"
 #include "json.hpp"
@@ -31,6 +32,9 @@ class ChatService {
   // One to one chat service
   void chat(const TcpConnectionPtr &conn, json &js, Timestamp &time);
 
+  // Add friend service
+  void addFriend(const TcpConnectionPtr &conn, json &js, Timestamp &time);
+
   // Get handler for a message
   msgHandler getHandler(int msgid);
 
@@ -57,4 +61,7 @@ class ChatService {
 
   // Offline message operation
   OfflineMsgModel _offlineMsgModel;
+
+  // Friend operation
+  FriendModel _friendModel;
 };

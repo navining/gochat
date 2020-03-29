@@ -3,6 +3,7 @@
 
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../include/server/ChatServer.h
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../include/server/ChatService.h
+src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../include/server/FriendModel.h
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../include/server/OfflineMsgModel.h
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../include/server/User.hpp
 src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../include/server/UserModel.h
@@ -11,11 +12,17 @@ src/server/CMakeFiles/gochat-server.dir/ChatServer.cpp.o: ../src/server/ChatServ
 
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../include/public.h
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../include/server/ChatService.h
+src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../include/server/FriendModel.h
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../include/server/OfflineMsgModel.h
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../include/server/User.hpp
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../include/server/UserModel.h
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../thirdparty/json.hpp
 src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.o: ../src/server/ChatService.cpp
+
+src/server/CMakeFiles/gochat-server.dir/FriendModel.cpp.o: ../include/server/FriendModel.h
+src/server/CMakeFiles/gochat-server.dir/FriendModel.cpp.o: ../include/server/User.hpp
+src/server/CMakeFiles/gochat-server.dir/FriendModel.cpp.o: ../include/server/database/Database.h
+src/server/CMakeFiles/gochat-server.dir/FriendModel.cpp.o: ../src/server/FriendModel.cpp
 
 src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o: ../include/server/OfflineMsgModel.h
 src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o: ../include/server/database/Database.h
@@ -31,6 +38,7 @@ src/server/CMakeFiles/gochat-server.dir/database/Database.cpp.o: ../src/server/d
 
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/ChatServer.h
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/ChatService.h
+src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/FriendModel.h
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/OfflineMsgModel.h
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/User.hpp
 src/server/CMakeFiles/gochat-server.dir/main.cpp.o: ../include/server/UserModel.h
