@@ -4,14 +4,15 @@
 #include <functional>
 #include <mutex>
 #include <unordered_map>
-#include "FriendModel.h"
-#include "OfflineMsgModel.h"
-#include "UserModel.h"
-#include "json.hpp"
-
 using namespace std;
 using namespace muduo;
 using namespace muduo::net;
+
+#include "FriendModel.h"
+#include "GroupModel.h"
+#include "OfflineMsgModel.h"
+#include "UserModel.h"
+#include "json.hpp"
 using json = nlohmann::json;
 
 // Call back function for handling message
@@ -34,6 +35,15 @@ class ChatService {
 
   // Add friend service
   void addFriend(const TcpConnectionPtr &conn, json &js, Timestamp &time);
+
+  // Create group service
+  void createGroup(const TcpConnectionPtr &conn, json &js, Timestamp &time);
+
+  // Add group service
+  void addGroup(const TcpConnectionPtr &conn, json &js, Timestamp &time);
+
+  // Group chat service
+  void groupChat(const TcpConnectionPtr &conn, json &js, Timestamp &time);
 
   // Get handler for a message
   msgHandler getHandler(int msgid);
@@ -64,4 +74,7 @@ class ChatService {
 
   // Friend operation
   FriendModel _friendModel;
+
+  // Group operation
+  GroupModel _groupModel;
 };

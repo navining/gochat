@@ -179,87 +179,6 @@ ChatService.cpp.s:
 	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/ChatService.cpp.s
 .PHONY : ChatService.cpp.s
 
-FriendModel.o: FriendModel.cpp.o
-
-.PHONY : FriendModel.o
-
-# target to build an object file
-FriendModel.cpp.o:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/FriendModel.cpp.o
-.PHONY : FriendModel.cpp.o
-
-FriendModel.i: FriendModel.cpp.i
-
-.PHONY : FriendModel.i
-
-# target to preprocess a source file
-FriendModel.cpp.i:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/FriendModel.cpp.i
-.PHONY : FriendModel.cpp.i
-
-FriendModel.s: FriendModel.cpp.s
-
-.PHONY : FriendModel.s
-
-# target to generate assembly for a file
-FriendModel.cpp.s:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/FriendModel.cpp.s
-.PHONY : FriendModel.cpp.s
-
-OfflineMsgModel.o: OfflineMsgModel.cpp.o
-
-.PHONY : OfflineMsgModel.o
-
-# target to build an object file
-OfflineMsgModel.cpp.o:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.o
-.PHONY : OfflineMsgModel.cpp.o
-
-OfflineMsgModel.i: OfflineMsgModel.cpp.i
-
-.PHONY : OfflineMsgModel.i
-
-# target to preprocess a source file
-OfflineMsgModel.cpp.i:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.i
-.PHONY : OfflineMsgModel.cpp.i
-
-OfflineMsgModel.s: OfflineMsgModel.cpp.s
-
-.PHONY : OfflineMsgModel.s
-
-# target to generate assembly for a file
-OfflineMsgModel.cpp.s:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/OfflineMsgModel.cpp.s
-.PHONY : OfflineMsgModel.cpp.s
-
-UserModel.o: UserModel.cpp.o
-
-.PHONY : UserModel.o
-
-# target to build an object file
-UserModel.cpp.o:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.o
-.PHONY : UserModel.cpp.o
-
-UserModel.i: UserModel.cpp.i
-
-.PHONY : UserModel.i
-
-# target to preprocess a source file
-UserModel.cpp.i:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.i
-.PHONY : UserModel.cpp.i
-
-UserModel.s: UserModel.cpp.s
-
-.PHONY : UserModel.s
-
-# target to generate assembly for a file
-UserModel.cpp.s:
-	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/UserModel.cpp.s
-.PHONY : UserModel.cpp.s
-
 database/Database.o: database/Database.cpp.o
 
 .PHONY : database/Database.o
@@ -314,6 +233,114 @@ main.cpp.s:
 	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+model/FriendModel.o: model/FriendModel.cpp.o
+
+.PHONY : model/FriendModel.o
+
+# target to build an object file
+model/FriendModel.cpp.o:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/FriendModel.cpp.o
+.PHONY : model/FriendModel.cpp.o
+
+model/FriendModel.i: model/FriendModel.cpp.i
+
+.PHONY : model/FriendModel.i
+
+# target to preprocess a source file
+model/FriendModel.cpp.i:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/FriendModel.cpp.i
+.PHONY : model/FriendModel.cpp.i
+
+model/FriendModel.s: model/FriendModel.cpp.s
+
+.PHONY : model/FriendModel.s
+
+# target to generate assembly for a file
+model/FriendModel.cpp.s:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/FriendModel.cpp.s
+.PHONY : model/FriendModel.cpp.s
+
+model/GroupModel.o: model/GroupModel.cpp.o
+
+.PHONY : model/GroupModel.o
+
+# target to build an object file
+model/GroupModel.cpp.o:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/GroupModel.cpp.o
+.PHONY : model/GroupModel.cpp.o
+
+model/GroupModel.i: model/GroupModel.cpp.i
+
+.PHONY : model/GroupModel.i
+
+# target to preprocess a source file
+model/GroupModel.cpp.i:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/GroupModel.cpp.i
+.PHONY : model/GroupModel.cpp.i
+
+model/GroupModel.s: model/GroupModel.cpp.s
+
+.PHONY : model/GroupModel.s
+
+# target to generate assembly for a file
+model/GroupModel.cpp.s:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/GroupModel.cpp.s
+.PHONY : model/GroupModel.cpp.s
+
+model/OfflineMsgModel.o: model/OfflineMsgModel.cpp.o
+
+.PHONY : model/OfflineMsgModel.o
+
+# target to build an object file
+model/OfflineMsgModel.cpp.o:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/OfflineMsgModel.cpp.o
+.PHONY : model/OfflineMsgModel.cpp.o
+
+model/OfflineMsgModel.i: model/OfflineMsgModel.cpp.i
+
+.PHONY : model/OfflineMsgModel.i
+
+# target to preprocess a source file
+model/OfflineMsgModel.cpp.i:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/OfflineMsgModel.cpp.i
+.PHONY : model/OfflineMsgModel.cpp.i
+
+model/OfflineMsgModel.s: model/OfflineMsgModel.cpp.s
+
+.PHONY : model/OfflineMsgModel.s
+
+# target to generate assembly for a file
+model/OfflineMsgModel.cpp.s:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/OfflineMsgModel.cpp.s
+.PHONY : model/OfflineMsgModel.cpp.s
+
+model/UserModel.o: model/UserModel.cpp.o
+
+.PHONY : model/UserModel.o
+
+# target to build an object file
+model/UserModel.cpp.o:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/UserModel.cpp.o
+.PHONY : model/UserModel.cpp.o
+
+model/UserModel.i: model/UserModel.cpp.i
+
+.PHONY : model/UserModel.i
+
+# target to preprocess a source file
+model/UserModel.cpp.i:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/UserModel.cpp.i
+.PHONY : model/UserModel.cpp.i
+
+model/UserModel.s: model/UserModel.cpp.s
+
+.PHONY : model/UserModel.s
+
+# target to generate assembly for a file
+model/UserModel.cpp.s:
+	cd /home/navi/repository/gochat/build && $(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/model/UserModel.cpp.s
+.PHONY : model/UserModel.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -329,21 +356,24 @@ help:
 	@echo "... ChatService.o"
 	@echo "... ChatService.i"
 	@echo "... ChatService.s"
-	@echo "... FriendModel.o"
-	@echo "... FriendModel.i"
-	@echo "... FriendModel.s"
-	@echo "... OfflineMsgModel.o"
-	@echo "... OfflineMsgModel.i"
-	@echo "... OfflineMsgModel.s"
-	@echo "... UserModel.o"
-	@echo "... UserModel.i"
-	@echo "... UserModel.s"
 	@echo "... database/Database.o"
 	@echo "... database/Database.i"
 	@echo "... database/Database.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... model/FriendModel.o"
+	@echo "... model/FriendModel.i"
+	@echo "... model/FriendModel.s"
+	@echo "... model/GroupModel.o"
+	@echo "... model/GroupModel.i"
+	@echo "... model/GroupModel.s"
+	@echo "... model/OfflineMsgModel.o"
+	@echo "... model/OfflineMsgModel.i"
+	@echo "... model/OfflineMsgModel.s"
+	@echo "... model/UserModel.o"
+	@echo "... model/UserModel.i"
+	@echo "... model/UserModel.s"
 .PHONY : help
 
 

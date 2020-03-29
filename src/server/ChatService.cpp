@@ -20,6 +20,12 @@ ChatService::ChatService() {
   _msgHandlerMap.insert({CHAT_MSG, bind(&ChatService::chat, this, _1, _2, _3)});
   _msgHandlerMap.insert(
       {ADD_FRIEND_MSG, bind(&ChatService::addFriend, this, _1, _2, _3)});
+  _msgHandlerMap.insert(
+      {CREATE_GROUP_MSG, bind(&ChatService::createGroup, this, _1, _2, _3)});
+  _msgHandlerMap.insert(
+      {ADD_GROUP_MSG, bind(&ChatService::addGroup, this, _1, _2, _3)});
+  _msgHandlerMap.insert(
+      {GROUP_CHAT_MSG, bind(&ChatService::groupChat, this, _1, _2, _3)});
 }
 
 msgHandler ChatService::getHandler(int msgid) {
@@ -181,4 +187,44 @@ void ChatService::addFriend(const TcpConnectionPtr& conn, json& js,
 
   // Save friend information
   _friendModel.insert(userid, friendid);
+}
+
+void ChatService::createGroup(const TcpConnectionPtr& conn, json& js,
+                              Timestamp& time) {
+  int userid = js["id"].get<int>();
+  string name = js["groupname"];
+  string desc = js["groupdesc"];
+
+  // Store group information
+  Group group(-1, name, desc);
+  if (_groupModel.create(group)) {
+    // Store group creator information
+    _groupModel.add(userid, group.getId(), ROLE_OWNER);
+  }
+}
+
+void ChatService::addGroup(const TcpConnectionPtr& conn, json& js,
+                           Timestamp& time) {
+  int userid = js["id"].get<int>();
+  int groupid = js["groupid"].get<int>();
+  _groupModel.add(userid, groupid, ROLE_MEMBER);
+}
+
+void ChatService::groupChat(const TcpConnectionPtr& conn, json& js,
+                            Timestamp& time) {
+  int userid = js["id"].get<int>();
+  int groupid = js["groupid"].get<int>();
+  vector<int> useridVec = _groupModel.queryUsers(userid, groupid);
+
+  lock_guard<mutex> lock(_connMutex);
+  for (int id : useridVec) {
+    auto it = _userConnMap.find(id);
+    if (it != _userConnMap.end()) {
+      // Send message to user
+      it->second->send(js.dump());
+    } else {
+      // Store offline message
+      _offlineMsgModel.insert(id, js.dump());
+    }
+  }
 }

@@ -102,7 +102,7 @@ src/server/preinstall:
 src/server/CMakeFiles/gochat-server.dir/all:
 	$(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/depend
 	$(MAKE) -f src/server/CMakeFiles/gochat-server.dir/build.make src/server/CMakeFiles/gochat-server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target gochat-server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/navi/repository/gochat/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target gochat-server"
 .PHONY : src/server/CMakeFiles/gochat-server.dir/all
 
 # Include target in all.
@@ -112,7 +112,7 @@ all: src/server/CMakeFiles/gochat-server.dir/all
 
 # Build rule for subdir invocation for target.
 src/server/CMakeFiles/gochat-server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/navi/repository/gochat/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/navi/repository/gochat/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 src/server/CMakeFiles/gochat-server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/navi/repository/gochat/build/CMakeFiles 0
 .PHONY : src/server/CMakeFiles/gochat-server.dir/rule
