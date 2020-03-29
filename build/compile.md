@@ -1,5 +1,0 @@
-# Compile
-```
-cmake ..
-make
-```
