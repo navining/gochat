@@ -20,7 +20,7 @@ bool MySQL::connect() {
   if (p != nullptr) {
     // Set encoding to GBK
     mysql_query(_conn, "set names gbk");
-    LOG_INFO << "Connect to mysql: Success!";
+    // LOG_INFO << "Connect to mysql: Success!";
   } else {
     LOG_INFO << "Connect to mysql: Fail!";
   }

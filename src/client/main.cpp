@@ -1,6 +1,10 @@
+#include <chrono>
+#include <ctime>
+#include <functional>
 #include <iostream>
 #include <string>
 #include <thread>
+#include <unordered_map>
 #include <vector>
 using namespace std;
 
@@ -19,7 +23,7 @@ using json = nlohmann::json;
 #define BUFFER_SIZE 4096
 
 // Client fd
-int clientfd;
+int clientfd = -1;
 
 // Record current user
 User g_user;
@@ -39,20 +43,74 @@ void printUserInfo();
 // Get user information
 void getUserInfo(const json &response);
 
+// Update user information
+void updateUserInfo();
+
 // Handle login
 void login();
 
 // Handle signup
 void signup();
 
-// Thread for read from client
-void readHandler(int clientfd);
+// Thread for receive from client
+void recvHandler(int clientfd);
 
 // Get system time
 string getTime();
 
 // Chat menu
-void mainMenu();
+void mainMenu(const json &response);
+
+// help command handler
+void help(string str = "");
+
+// chat command handler
+void chat(string str);
+
+// addfriend command handler
+void addFriend(string str);
+
+// creategroup command handler
+void createGroup(string str);
+
+// addgroup command handler
+void addGroup(string str);
+
+// groupchat command handler
+void groupChat(string str);
+
+// quit command handler
+void quit(string str = "");
+
+// clear command handler
+void clear(string str = "");
+
+// show command handler
+void show(string str = "");
+
+// Command list
+unordered_map<string, string> commandMap = {
+    {"help", "Show all commands.\n\t[help]"},
+    {"chat", "One-to-one chat.\n\t[chat:id:message]"},
+    {"addfriend", "Add a friend.\n\t[addfriend:id]"},
+    {"creategroup", "Create a group\n\t[creategroup:name:description]"},
+    {"addgroup", "Add into a group.\n\t[addgroup:id]"},
+    {"groupchat", "Group chat.\n\t[groupchat:id:message]"},
+    {"quit", "Log out.\n\t[quit]"},
+    {"clear", "Clear the screen.\n\t[clear]"},
+    {"show", "Show friends and groups.\n\t[show]"}};
+
+// Function for commands
+unordered_map<string, function<void(string)>> commandHandlerMap = {
+    {"help", help},
+    {"chat", chat},
+    {"addfriend", addFriend},
+    {"creategroup", createGroup},
+    {"addgroup", addGroup},
+    {"groupchat", groupChat},
+    {"quit", quit},
+    {"clear", clear},
+    {"show", show}};
 
 int main(int argc, char **argv) {
   if (argc < 3) {
@@ -88,7 +146,7 @@ int main(int argc, char **argv) {
   printMenu("");
   // Main thread used to read user input and send data to server
   for (;;) {
-    cout << "Choice: ";
+    cout << ">> ";
     int choice = 0;
     cin >> choice;
     cin.get();
@@ -133,24 +191,23 @@ void printMenu(string msg = "") {
 }
 
 void printUserInfo() {
-  system("clear");
   cout << "                   GoChat v1.0                  " << endl;
   cout << "===================== User =====================" << endl;
-  cout << "  " << g_user.getId() << "\t" << g_user.getName() << endl;
+  cout << "  [" << g_user.getId() << "]\t" << g_user.getName() << endl;
   cout << "==================== Friends ===================" << endl;
   if (!g_friendList.empty()) {
     for (User &user : g_friendList) {
-      cout << "  " << user.getId() << "\t" << user.getName() << "\t"
+      cout << "  [" << user.getId() << "]\t" << user.getName() << "\t"
            << user.getState() << endl;
     }
   }
   cout << "==================== Groups ====================" << endl;
   if (!g_groupList.empty()) {
     for (Group &group : g_groupList) {
-      cout << "  " << group.getId() << "\t" << group.getName() << "\t"
+      cout << "  [" << group.getId() << "]\t" << group.getName() << "\t"
            << group.getDesc() << endl;
       for (GroupUser &user : group.getUsers()) {
-        cout << "  \t-" << user.getId() << "\t" << user.getName() << "\t"
+        cout << "  \t- [" << user.getId() << "]\t" << user.getName() << "\t"
              << user.getState() << endl;
       }
     }
@@ -204,11 +261,11 @@ void login() {
         getUserInfo(response);
 
         // Start new thread for reading data
-        thread readTask(readHandler, clientfd);
-        readTask.detach();
+        thread recvTask(recvHandler, clientfd);
+        recvTask.detach();
 
         // Enter main menu
-        mainMenu();
+        mainMenu(response);
       }
     }
   }
@@ -247,24 +304,76 @@ void signup() {
     } else {
       // Sign up succeed
       cout << "Sign up success, your user ID is: " << response["id"]
-           << ", do not forget!" << endl;
+           << ", do not forget it!" << endl;
     }
   }
 }
 
-void readHandler(int clientfd) {}
-
-void mainMenu() {
-  printUserInfo();
+void recvHandler(int clientfd) {
   for (;;) {
-    cout << "Choice: ";
-    int choice = 0;
-    cin >> choice;
-    cin.get();
-    while (cin.fail()) {
-      cin.clear();
-      cin.ignore();
+    char buffer[BUFFER_SIZE] = {0};
+    int len = recv(clientfd, buffer, BUFFER_SIZE, 0);
+    if (len == -1 || len == 0) {
+      close(clientfd);
+      exit(-1);
     }
+
+    // Receive data from chat server
+    json js = json::parse(buffer);
+    if (js["msgid"].get<int>() == CHAT_MSG) {
+      // Chat message
+      cout << "\n"
+           << js["time"].get<string>() << " [" << js["id"] << "] "
+           << js["name"].get<string>() << ": " << js["msg"].get<string>()
+           << endl;
+    }
+
+    if (js["msgid"].get<int>() == UPDATE_MSG_ACK) {
+      // Update user information
+      getUserInfo(js);
+    }
+  }
+}
+
+void mainMenu(const json &response) {
+  system("clear");
+  printUserInfo();
+  cout << "(Try \"help\")" << endl;
+
+  // Show offline message
+  if (response.contains("offlinemsg")) {
+    vector<string> offlinemsg = response["offlinemsg"];
+    for (string &msg : offlinemsg) {
+      json js = json::parse(msg);
+      cout << "[History] " << js["time"].get<string>() << " [" << js["id"]
+           << "] " << js["name"].get<string>() << ": "
+           << js["msg"].get<string>() << endl;
+    }
+  }
+
+  char buffer[BUFFER_SIZE] = {0};
+  for (;;) {
+    cout << ">> ";
+    cin.getline(buffer, BUFFER_SIZE);
+    string cmdBuffer(buffer);
+    string cmd;  // Store the command
+
+    int idx = cmdBuffer.find(":");
+    if (idx == -1) {
+      cmd = cmdBuffer;
+    } else {
+      cmd = cmdBuffer.substr(0, idx);
+    }
+
+    auto it = commandHandlerMap.find(cmd);
+    if (it == commandHandlerMap.end()) {
+      cerr << "Invalid input! Try \"help\"." << endl;
+      continue;
+    }
+
+    // Call event handler
+    string arg = cmdBuffer.substr(idx + 1, cmdBuffer.size() - idx);
+    it->second(arg);
   }
 }
 
@@ -274,6 +383,7 @@ void getUserInfo(const json &response) {
   g_user.setName(response["name"]);
 
   // Record friend list
+  g_friendList = {};
   if (response.contains("friends")) {
     vector<string> friends = response["friends"];
     for (string &f : friends) {
@@ -287,6 +397,7 @@ void getUserInfo(const json &response) {
   }
 
   // Record group list
+  g_groupList = {};
   if (response.contains("groups")) {
     vector<string> groups = response["groups"];
     for (string &g : groups) {
@@ -309,4 +420,96 @@ void getUserInfo(const json &response) {
       g_groupList.push_back(group);
     }
   }
+}
+
+void help(string str) {
+  cout << "Command lists >>>" << endl;
+  for (auto &command : commandMap) {
+    cout << " - " << command.first << ": " << command.second << endl;
+  }
+}
+
+void chat(string str) {
+  int idx = str.find(":");
+  if (idx == -1) {
+    cerr << "Invaild input! Try \"help\"." << endl;
+    return;
+  }
+
+  int friendid = atoi(str.substr(0, idx).c_str());
+  string message = str.substr(idx + 1, str.size() - idx);
+
+  json js;
+  js["msgid"] = CHAT_MSG;
+  js["id"] = g_user.getId();
+  js["name"] = g_user.getName();
+  js["to"] = friendid;
+  js["msg"] = message;
+  js["time"] = getTime();
+
+  string buffer = js.dump();
+  int len = send(clientfd, buffer.c_str(), strlen(buffer.c_str()) + 1, 0);
+  if (len == -1) {
+    cerr << "Send message failed." << endl;
+  }
+}
+
+void addFriend(string str) {
+  int friendid = atoi(str.c_str());
+  if (friendid == 0) {
+    cerr << "Invalid input!" << endl;
+    return;
+  }
+  json js;
+  js["msgid"] = ADD_FRIEND_MSG;
+  js["id"] = g_user.getId();
+  js["friend"] = friendid;
+
+  string buffer = js.dump();
+  int len = send(clientfd, buffer.c_str(), strlen(buffer.c_str()) + 1, 0);
+  if (len == -1) {
+    cerr << "Add friend failed." << endl;
+  } else {
+    cout << "New friend added!" << endl;
+    // Update user information
+    updateUserInfo();
+  }
+}
+
+void createGroup(string str) {}
+
+void addGroup(string str) {}
+
+void groupChat(string str) {}
+
+void quit(string str) {}
+
+void clear(string str) {
+  updateUserInfo();
+  system("clear");
+  printUserInfo();
+}
+
+void show(string str) {
+  updateUserInfo();
+  printUserInfo();
+}
+
+void updateUserInfo() {
+  json js;
+  js["msgid"] = UPDATE_MSG;
+  js["id"] = g_user.getId();
+
+  string buffer = js.dump();
+  send(clientfd, buffer.c_str(), strlen(buffer.c_str()) + 1, 0);
+}
+
+string getTime() {
+  auto tt = chrono::system_clock::to_time_t(chrono::system_clock::now());
+  struct tm *ptm = localtime(&tt);
+  char date[60] = {0};
+  sprintf(date, "%d-%02d-%02d %02d:%02d:%02d", (int)ptm->tm_year + 1900,
+          (int)ptm->tm_mon + 1, (int)ptm->tm_mday, (int)ptm->tm_hour,
+          (int)ptm->tm_min, (int)ptm->tm_sec);
+  return string(date);
 }

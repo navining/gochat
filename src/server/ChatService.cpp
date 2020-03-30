@@ -26,6 +26,8 @@ ChatService::ChatService() {
       {ADD_GROUP_MSG, bind(&ChatService::addGroup, this, _1, _2, _3)});
   _msgHandlerMap.insert(
       {GROUP_CHAT_MSG, bind(&ChatService::groupChat, this, _1, _2, _3)});
+  _msgHandlerMap.insert(
+      {UPDATE_MSG, bind(&ChatService::update, this, _1, _2, _3)});
 }
 
 msgHandler ChatService::getHandler(int msgid) {
@@ -254,4 +256,57 @@ void ChatService::groupChat(const TcpConnectionPtr& conn, json& js,
       _offlineMsgModel.insert(id, js.dump());
     }
   }
+}
+
+void ChatService::update(const TcpConnectionPtr& conn, json& js,
+                         Timestamp& time) {
+  int id = js["id"];
+  json response;
+
+  // Update user information
+  User user = _userModel.query(id);
+  response["msgid"] = UPDATE_MSG_ACK;
+  response["id"] = user.getId();
+  response["name"] = user.getName();
+
+  // Query friend information
+  vector<User> friendVec = _friendModel.query(user.getId());
+  if (!friendVec.empty()) {
+    vector<string> userVec;
+    for (User& u : friendVec) {
+      json js;
+      js["id"] = u.getId();
+      js["name"] = u.getName();
+      js["state"] = u.getState();
+      userVec.push_back(js.dump());
+    }
+    response["friends"] = userVec;
+  }
+
+  // Query group information
+  vector<Group> groupsVec = _groupModel.query(user.getId());
+  if (!groupsVec.empty()) {
+    vector<string> groupVec;
+    for (Group& group : groupsVec) {
+      json groupjs;
+      groupjs["id"] = group.getId();
+      groupjs["groupname"] = group.getName();
+      groupjs["groupdesc"] = group.getDesc();
+
+      vector<string> userVec;
+      for (GroupUser& user : group.getUsers()) {
+        json js;
+        js["id"] = user.getId();
+        js["name"] = user.getName();
+        js["state"] = user.getState();
+        js["role"] = user.getRole();
+        userVec.push_back(js.dump());
+      }
+      groupjs["users"] = userVec;
+      groupVec.push_back(groupjs.dump());
+    }
+    response["groups"] = groupVec;
+  }
+
+  conn->send(response.dump());
 }
