@@ -121,6 +121,33 @@ void ChatService::login(const TcpConnectionPtr& conn, json& js,
         response["friends"] = userVec;
       }
 
+      // Query group information
+      // {Groups: {{groupid: 1, groupname: "xxx", groupdesc: "xxx", users: {{id:
+      // xxx, name: "xxx", state: "xxx", role: "xxx"}}}}}
+      vector<Group> groupsVec = _groupModel.query(user.getId());
+      if (!groupsVec.empty()) {
+        vector<string> groupVec;
+        for (Group& group : groupsVec) {
+          json groupjs;
+          groupjs["id"] = group.getId();
+          groupjs["groupname"] = group.getName();
+          groupjs["groupdesc"] = group.getDesc();
+
+          vector<string> userVec;
+          for (GroupUser& user : group.getUsers()) {
+            json js;
+            js["id"] = user.getId();
+            js["name"] = user.getName();
+            js["state"] = user.getState();
+            js["role"] = user.getRole();
+            userVec.push_back(js.dump());
+          }
+          groupjs["users"] = userVec;
+          groupVec.push_back(groupjs.dump());
+        }
+        response["groups"] = groupVec;
+      }
+
       conn->send(response.dump());
     }
 
