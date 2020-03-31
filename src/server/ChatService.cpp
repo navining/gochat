@@ -1,6 +1,9 @@
 #include "ChatService.h"
+
 #include <muduo/base/Logging.h>
+
 #include <vector>
+
 #include "public.h"
 
 using namespace muduo;
@@ -219,6 +222,11 @@ void ChatService::signup(const TcpConnectionPtr& conn, json& js,
 void ChatService::chat(const TcpConnectionPtr& conn, json& js,
                        Timestamp& time) {
   int toId = js["to"].get<int>();
+
+  // Echo back
+  if (toId != js["id"].get<int>()) {
+    conn->send(js.dump());
+  }
 
   {
     lock_guard<mutex> lock(_connMutex);

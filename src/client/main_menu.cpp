@@ -79,16 +79,16 @@ void mainMenu(const json &response) {
       if (js["msgid"].get<int>() == CHAT_MSG) {
         // Chat message
         cout << "[History] " << js["time"].get<string>() << " [" << js["id"]
-             << "] " << js["name"].get<string>() << ": "
-             << js["msg"].get<string>() << endl;
+             << "]" << js["name"].get<string>() << ": "
+             << js["msg"].get<string>() << "\n";
       }
 
       if (js["msgid"].get<int>() == GROUP_CHAT_MSG) {
         // Group chat message
-        cout << "[History] " << js["time"].get<string>() << " ["
-             << js["groupid"] << "] " << js["groupname"].get<string>() << ": "
-             << "[" << js["id"] << "] " << js["name"].get<string>() << ": "
-             << js["msg"].get<string>() << endl;
+        cout << "[History] " << js["time"].get<string>() << " <["
+             << js["groupid"] << "]" << js["groupname"].get<string>() << "> ["
+             << js["id"] << "]" << js["name"].get<string>() << ": "
+             << js["msg"].get<string>() << "\n";
       }
     }
   }
@@ -98,7 +98,7 @@ void mainMenu(const json &response) {
   char buffer[BUFFER_SIZE] = {0};
 
   while (g_mainFlag) {
-    cout << ">> ";
+    // cout << ">> ";
     cin.getline(buffer, BUFFER_SIZE);
     string cmdBuffer(buffer);
     string cmd;  // Store the command
@@ -138,19 +138,17 @@ void recvHandler(int clientfd) {
 
     if (js["msgid"].get<int>() == CHAT_MSG) {
       // Chat message
-      cout << "\n"
-           << js["time"].get<string>() << " [" << js["id"] << "] "
+      cout << "\n\t" << js["time"].get<string>() << " [" << js["id"] << "]"
            << js["name"].get<string>() << ": " << js["msg"].get<string>()
-           << endl;
+           << "\n";
     }
 
     if (js["msgid"].get<int>() == GROUP_CHAT_MSG) {
       // Group chat message
-      cout << "\n"
-           << js["time"].get<string>() << " [" << js["groupid"] << "] "
-           << js["groupname"].get<string>() << ": "
-           << "[" << js["id"] << "] " << js["name"].get<string>() << ": "
-           << js["msg"].get<string>() << endl;
+      cout << "\n\t" << js["time"].get<string>() << " <[" << js["groupid"]
+           << "]" << js["groupname"].get<string>() << "> [" << js["id"] << "]"
+           << js["name"].get<string>() << ": " << js["msg"].get<string>()
+           << "\n";
     }
 
     if (js["msgid"].get<int>() == UPDATE_MSG_ACK) {

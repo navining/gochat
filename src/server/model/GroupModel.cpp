@@ -1,4 +1,5 @@
 #include "GroupModel.h"
+
 #include "Database.h"
 
 bool GroupModel::create(Group &group) {
@@ -86,9 +87,7 @@ vector<Group> GroupModel::query(int userid) {
 vector<int> GroupModel::queryUsers(int userid, int groupid) {
   // Assemble sql command
   char sql[256] = {0};
-  sprintf(sql,
-          "select userid from groupuser where groupid = %d and userid != %d",
-          groupid, userid);
+  sprintf(sql, "select userid from groupuser where groupid = %d", groupid);
 
   vector<int> vec;
 
