@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+
 #include "GroupUser.hpp"
 using namespace std;
 
@@ -26,7 +27,9 @@ class Group {
 
   string getDesc() { return desc; }
 
-  vector<GroupUser> getUsers() { return users; }
+  vector<GroupUser>& getUsers() { return users; }
+
+  bool operator==(const Group& that) { return id == that.id; }
 
  private:
   int id;

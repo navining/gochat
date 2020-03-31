@@ -3,7 +3,7 @@
 #include "User.hpp"
 
 #define ROLE_OWNER "Owner"
-#define ROLE_ADMIN "admin"
+#define ROLE_ADMIN "Admin"
 #define ROLE_MEMBER "Member"
 
 // Group user, extends from User

@@ -30,6 +30,8 @@ class User {
 
   string getState() { return state; }
 
+  bool operator==(const User& that) { return id == that.id; }
+
  protected:
   int id;
   string name;

@@ -28,6 +28,8 @@ ChatService::ChatService() {
       {GROUP_CHAT_MSG, bind(&ChatService::groupChat, this, _1, _2, _3)});
   _msgHandlerMap.insert(
       {UPDATE_MSG, bind(&ChatService::update, this, _1, _2, _3)});
+  _msgHandlerMap.insert(
+      {LOGOUT_MSG, bind(&ChatService::logout, this, _1, _2, _3)});
 }
 
 msgHandler ChatService::getHandler(int msgid) {
@@ -40,6 +42,29 @@ msgHandler ChatService::getHandler(int msgid) {
   } else {
     return _msgHandlerMap[msgid];
   }
+}
+
+void ChatService::logout(const TcpConnectionPtr& conn, json& js,
+                         Timestamp& time) {
+  int id = js["id"].get<int>();
+  {
+    lock_guard<mutex> lock(_connMutex);
+    auto it = _userConnMap.find(id);
+    if (it != _userConnMap.end()) {
+      _userConnMap.erase(it);
+    }
+  }
+
+  // Update user state
+  User user(id, "", "", "offline");
+  _userModel.updateState(user);
+
+  // Send logout response
+  json response;
+  response["msgid"] = LOGOUT_MSG_ACK;
+  conn->send(response.dump());
+
+  LOG_INFO << "[" << id << ": " << js["name"].get<string>() << "] logged out";
 }
 
 void ChatService::clientCloseException(const TcpConnectionPtr& conn) {

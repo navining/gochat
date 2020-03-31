@@ -45,6 +45,9 @@ class ChatService {
   // Group chat service
   void groupChat(const TcpConnectionPtr &conn, json &js, Timestamp &time);
 
+  // Log out service
+  void logout(const TcpConnectionPtr &conn, json &js, Timestamp &time);
+
   // Update user information
   void update(const TcpConnectionPtr &conn, json &js, Timestamp &time);
 
