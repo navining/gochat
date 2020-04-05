@@ -1,5 +1,7 @@
 #include <signal.h>
+
 #include <iostream>
+
 #include "ChatServer.h"
 #include "ChatService.h"
 
@@ -11,11 +13,20 @@ void resetHandler(int) {
   exit(0);
 }
 
-int main() {
+int main(int argc, char **argv) {
+  if (argc < 3) {
+    cerr << "Invalid input!\nExample: ./gochat-client 127.0.0.1 8888" << endl;
+    exit(-1);
+  }
+
+  // Parse ip and port
+  char *ip = argv[1];
+  uint16_t port = atoi(argv[2]);
+
   signal(SIGINT, resetHandler);
 
   EventLoop loop;
-  InetAddress addr("127.0.0.1", 8888);
+  InetAddress addr(ip, port);
   ChatServer server(&loop, addr, "GoChat-Server");
 
   server.start();

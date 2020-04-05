@@ -21,6 +21,9 @@ Required by muduo (for boost::any only). Version 1.69.0.
 ### MySQL
 Version 8.0.
 
+### Nginx
+Version 1.12.2.
+
 ## Build
 ```
 ./build.sh
