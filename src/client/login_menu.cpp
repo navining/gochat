@@ -18,7 +18,7 @@ using json = nlohmann::json;
 bool g_mainFlag = false;
 
 void loginMenu() {
-  printMenu("");
+  printMenu();
   // Main thread used to read user input and send data to server
   for (;;) {
     cout << ">> ";
@@ -90,7 +90,7 @@ void login() {
       json response = json::parse(buffer);
       if (response["errid"].get<int>() != 0) {
         // Log in failed
-        printMenu("");
+        printMenu();
         cout << response["errmsg"].get<string>() << endl;
       } else {
         // Log in succeed
@@ -130,7 +130,7 @@ void signup() {
     json response = json::parse(buffer);
     if (response["errid"].get<int>() != 0) {
       // Sign up failed
-      printMenu("");
+      printMenu();
       cout << name << " already exists!" << endl;
     } else {
       // Sign up succeed

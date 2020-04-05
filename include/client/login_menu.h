@@ -16,4 +16,4 @@ void login();
 void signup();
 
 // Print menu
-void printMenu(string msg);
+void printMenu(string msg = "");
