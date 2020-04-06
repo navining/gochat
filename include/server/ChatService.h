@@ -1,6 +1,7 @@
 #pragma once
 
 #include <muduo/net/TcpConnection.h>
+
 #include <functional>
 #include <mutex>
 #include <unordered_map>
@@ -13,6 +14,7 @@ using namespace muduo::net;
 #include "OfflineMsgModel.h"
 #include "UserModel.h"
 #include "json.hpp"
+#include "redis.h"
 using json = nlohmann::json;
 
 // Call back function for handling message
@@ -60,6 +62,9 @@ class ChatService {
   // Reset after server exit exception
   void reset();
 
+  // Receive message from redis
+  void handleRedisMessage(int id, string message);
+
  private:
   ChatService();
 
@@ -83,4 +88,7 @@ class ChatService {
 
   // Group operation
   GroupModel _groupModel;
+
+  // Redis Object
+  Redis _redis;
 };

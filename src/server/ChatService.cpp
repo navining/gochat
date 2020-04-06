@@ -33,6 +33,13 @@ ChatService::ChatService() {
       {UPDATE_MSG, bind(&ChatService::update, this, _1, _2, _3)});
   _msgHandlerMap.insert(
       {LOGOUT_MSG, bind(&ChatService::logout, this, _1, _2, _3)});
+
+  // Connect redis
+  if (_redis.connect()) {
+    // Set callback function
+    _redis.init_notify_handler(
+        std::bind(&ChatService::handleRedisMessage, this, _1, _2));
+  }
 }
 
 msgHandler ChatService::getHandler(int msgid) {
@@ -57,6 +64,9 @@ void ChatService::logout(const TcpConnectionPtr& conn, json& js,
       _userConnMap.erase(it);
     }
   }
+
+  // Unsubscribe channel(id) from redis
+  _redis.unsubscribe(id);
 
   // Update user state
   User user(id, "", "", "offline");
@@ -83,6 +93,9 @@ void ChatService::clientCloseException(const TcpConnectionPtr& conn) {
       }
     }
   }
+
+  // Unsubscribe channel(id) from redis
+  _redis.unsubscribe(user.getId());
 
   // Update user state
   if (user.getId() != -1) {
@@ -119,6 +132,9 @@ void ChatService::login(const TcpConnectionPtr& conn, json& js,
         lock_guard<mutex> lock(_connMutex);
         _userConnMap.insert({user.getId(), conn});
       }
+
+      // Subscribe channel(id) to redis
+      _redis.subscribe(id);
 
       // Update user state
       user.setState("online");
@@ -238,6 +254,14 @@ void ChatService::chat(const TcpConnectionPtr& conn, json& js,
     }
   }
 
+  // If connection is not found, check the database
+  User user = _userModel.query(toId);
+  if (user.getState() == "online") {
+    // Publish message to redis channel(toId)
+    _redis.publish(toId, js.dump());
+    return;
+  }
+
   // User offline, save offline message
   _offlineMsgModel.insert(toId, js.dump());
 }
@@ -285,6 +309,13 @@ void ChatService::groupChat(const TcpConnectionPtr& conn, json& js,
       // Send message to user
       it->second->send(js.dump());
     } else {
+      // If connection is not found, check the database
+      User user = _userModel.query(id);
+      if (user.getState() == "online") {
+        // Publish message to redis channel(id)
+        _redis.publish(id, js.dump());
+        return;
+      }
       // Store offline message
       _offlineMsgModel.insert(id, js.dump());
     }
@@ -342,4 +373,17 @@ void ChatService::update(const TcpConnectionPtr& conn, json& js,
   }
 
   conn->send(response.dump());
+}
+
+void ChatService::handleRedisMessage(int id, string message) {
+  // Find user connection and send message
+  lock_guard<mutex> lock(_connMutex);
+  auto it = _userConnMap.find(id);
+  if (it != _userConnMap.end()) {
+    it->second->send(message);
+    return;
+  }
+
+  // Store offline message
+  _offlineMsgModel.insert(id, message);
 }

@@ -15,7 +15,7 @@ void resetHandler(int) {
 
 int main(int argc, char **argv) {
   if (argc < 3) {
-    cerr << "Invalid input!\nExample: ./gochat-client 127.0.0.1 8888" << endl;
+    cerr << "Invalid input!\nExample: ./gochat-server 127.0.0.1 8888" << endl;
     exit(-1);
   }
 
