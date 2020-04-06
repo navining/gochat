@@ -1,4 +1,12 @@
 # GoChat
+```
+  ____        ____ _           _   
+ / ___| ___  / ___| |__   __ _| |_ 
+| |  _ / _ \| |   | '_ \ / _` | __|
+| |_| | (_) | |___| | | | (_| | |_ 
+ \____|\___/ \____|_| |_|\__,_|\__|
+```
+
 >A chat server and client based on muduo network library, able to work in Nginx TCP load balancing environment
 
 ![Gochat](assets/gochat.png)
@@ -10,10 +18,11 @@
 * Add friends
 * Create/add groups
 * Offline message
+* Support cluster server
 
 ## Dependencies
 ### [muduo](https://github.com/chenshuo/muduo)
-A multithreaded C++ network library based on the reactor pattern.
+A multithreaded C++ network library based on the reactor pattern. Version 2.0.1.
 
 ### [boost](https://www.boost.org/)
 Required by muduo (for boost::any only). Version 1.69.0.
@@ -25,9 +34,10 @@ Version 8.0.
 Version 1.12.2.
 
 ### Redis
-Version 5:4.0.9-1
+TCP module required. Version 5:4.0.9-1
 
-[hiredis](https://github.com/redis/hiredis): C++ client for Redis.
+### [hiredis](https://github.com/redis/hiredis)
+C++ client for Redis.
 
 ## Build
 ```
