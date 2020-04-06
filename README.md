@@ -46,13 +46,10 @@ C++ client for Redis.
 ## Run
 ### Server
 ```
-./bin/gochat-server
+./bin/gochat-server [IP] [Port]
 ```
 ### Client
 ```
 ./bin/gochat-client [IP] [Port]
 ```
-On localhost:
-```
-./bin/gochat-client 127.0.0.1 8888
-```
+
