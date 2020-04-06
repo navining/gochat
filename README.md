@@ -24,6 +24,11 @@ Version 8.0.
 ### Nginx
 Version 1.12.2.
 
+### Redis
+Version 5:4.0.9-1
+
+[hiredis](https://github.com/redis/hiredis): C++ client for Redis.
+
 ## Build
 ```
 ./build.sh
