@@ -31,10 +31,10 @@ Required by muduo (for boost::any only). Version 1.69.0.
 Version 8.0.
 
 ### Nginx
-Version 1.12.2.
+TCP module required. Version 1.12.2.
 
 ### Redis
-TCP module required. Version 5:4.0.9-1
+Version 5:4.0.9-1
 
 ### [hiredis](https://github.com/redis/hiredis)
 C++ client for Redis.
